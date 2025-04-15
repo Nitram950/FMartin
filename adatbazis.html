@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikrovezérlés - Dunaújvárosi Egyetem Bánki Donát Technikum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        .name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+        .back-button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            margin-top: 100px;
+            display: inline-block;
+        }
+        .back-button:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), 0 0 25px #4a90e2;
+        }
+        .content {
+            margin-top: 100px;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .doc-viewer {
+        position: relative;
+        top: 150px;
+        right: 20px;
+        width: 80%; /* Növelt szélesség (most az oldal 80%-át foglalja el) */
+        height: 500px; /* Növelt magasság */
+        border: 4px solid #4a90e2;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 20px auto;
+        box-sizing: border-box;
+        transition: transform 0.3s ease;
+        }
+        }
+        .doc-title {
+            background-color: #4a90e2;
+            color: white;
+            font-size: 20px;
+            padding: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), 0 0 25px #4a90e2;
+        }
+        .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .fullscreen-btn:hover {
+            background-color: #4a90e2;
+        }
+        .close-btn {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .close-btn:hover {
+            background-color: #4a90e2;
+        }
+        .fullscreen .doc-viewer {
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            border-radius: 0;
+        }
+        .fullscreen .close-btn {
+            display: block;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        /* Hover efektus a dokumentum néző gombokhoz */
+        .doc-viewer:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="header">
+        <span>Dunaújvárosi Egyetem Bánki Donát Technikum</span>
+        <div class="name">Fésüs Martin</div>
+    </div>
+    <a href="index.html" class="back-button">🔙Vissza</a>
+	<a href=".html" class="back-button">📋 Konzultációslap 📋</a>
+    <div class="content">
+        <h1>Adatbáziskezelés alapjai</h1>
+        <div class="explanation red-box">🔽 Önreflexió 🔽</div>
+		<p>A dolgozat megírása során igyekeztem alaposan bemutatni a relációs adatbázis-kezelő rendszerek működését és azok alkalmazását egy egyszerű, átlátható példán keresztül. Az adatbázis-tervezés lépéseinek ismertetése, az adattípusok részletezése és az SQL műveletek bemutatása segítettek jobban megérteni az adatbázisok működését, valamint a gyakorlati alkalmazásukat. Külön figyelmet fordítottam arra, hogy minden egyes lépést világosan és érthetően magyarázzak el, hogy bárki számára érthető legyen a téma. 
+
+A folyamat során ráébredtem, hogy az adatbázis-tervezés nem csupán elméleti, hanem igen gyakorlati feladat is, amelyben a részletek, mint a megfelelő adattípusok kiválasztása és a normalizáció kulcsszerepet játszanak. Az SQL parancsok alkalmazása pedig lehetőséget adott arra, hogy ne csak elméleti szinten, hanem valóban működő adatbázist is létrehozzak. Összességében úgy érzem, hogy a dolgozat megírása során mélyebb megértést nyertem az adatbázisok struktúrájáról és azok kezeléséről, ami hasznos alapot biztosít a jövőbeli feladatokhoz. 
+</p>
+    </div>
+
+    <!-- Word dokumentum néző -->
+    <div class="doc-viewer">
+        <div class="doc-title">Adatbáziskezelés alapjai</div>
+        <iframe src="https://dufoffice365-my.sharepoint.com/personal/72591223268_tanulo_bankisuli_hu/_layouts/15/Doc.aspx?sourcedoc={5f82fde3-9068-4cf9-ab0c-fb0390b289e7}&amp;action=embedview" width="476px" height="288px" frameborder="0">Ez egy beágyazott <a target="_blank" href="https://office.com">Microsoft Office</a>-dokumentum, amelynek szolgáltatója a(z) <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+        <div class="fullscreen-btn" onclick="toggleFullscreen()">🔲</div>
+        <div class="close-btn" onclick="closeFullscreen()">❌</div>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">💡</button>
+
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const body = document.body;
+        const themeButton = document.querySelector('.theme-toggle');
+        
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            themeButton.innerHTML = savedTheme === 'light-mode' ? '💡' : '🌕';
+        }
+
+        function toggleTheme() {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeButton.innerHTML = '🌕';
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeButton.innerHTML = '💡';
+                localStorage.setItem('theme', 'light-mode');
+            }
+        }
+
+        function toggleFullscreen() {
+            const docViewer = document.querySelector('.doc-viewer');
+            if (docViewer.requestFullscreen) {
+                docViewer.requestFullscreen();
+            } else if (docViewer.mozRequestFullScreen) { // Firefox
+                docViewer.mozRequestFullScreen();
+            } else if (docViewer.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                docViewer.webkitRequestFullscreen();
+            } else if (docViewer.msRequestFullscreen) { // IE/Edge
+                docViewer.msRequestFullscreen();
+            }
+            docViewer.classList.add('fullscreen');
+        }
+
+        function closeFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+            const docViewer = document.querySelector('.doc-viewer');
+            docViewer.classList.remove('fullscreen');
+        }
+    </script>
+</body>
+</html>

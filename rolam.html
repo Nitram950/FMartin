@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rólam - Dunaújvárosi Egyetem Bánki Donát Technikum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="loggo.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        .roham-button, .back-button, .submenu-button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .roham-button:hover, .back-button:hover, .submenu-button:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), 0 0 25px #4a90e2;
+        }
+
+        .back-button {
+            margin-top: 100px;
+            display: inline-block;
+        }
+
+        .content {
+            margin-top: 100px;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .submenu {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .submenu-items {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pdf-container {
+            position: relative;
+            width: 45%;
+            height: 400px;
+            background-color: #f1f1f1;
+            border: 2px solid #4a90e2;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .pdf-title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4a90e2;
+            color: white;
+            padding: 5px 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .zoom-btns {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .zoom-btn {
+            background-color: #4a90e2;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .zoom-btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), 0 0 25px #4a90e2;
+        }
+
+        /* Fullscreen modal */
+        .fullscreen-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-modal iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+        }
+
+        .close-fullscreen {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="header">
+        <span>Dunaújvárosi Egyetem Bánki Donát Technikum</span>
+        <div class="name">Fésüs Martin</div>
+    </div>
+    <a href="index.html" class="back-button">Vissza</a>
+    <div class="content">
+        <h1>Rólam</h1>
+        <p>Itt található néhány információ rólam és a technikumban végzett munkámról.</p>
+        <div class="submenu">
+            <a href="javascript:void(0);" class="submenu-button" onclick="toggleSubmenu()">Önéletrajzom</a>
+        </div>
+
+        <div class="submenu-items">
+            <div class="pdf-container">
+                <div class="pdf-title">Magyar önéletrajz</div>
+                <div class="zoom-btns">
+                    <button class="zoom-btn" onclick="fullscreen('pdf1')">⛶</button>
+                </div>
+                <iframe src="magyar_onesletrajz.pdf" id="pdf1"></iframe>
+            </div>
+            <div class="pdf-container">
+                <div class="pdf-title">Angol önéletrajz</div>
+                <div class="zoom-btns">
+                    <button class="zoom-btn" onclick="fullscreen('pdf2')">⛶</button>
+                </div>
+                <iframe src="angol_onesletrajz.pdf" id="pdf2"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">💡</button>
+
+    <!-- Fullscreen Modal -->
+    <div id="fullscreenModal" class="fullscreen-modal">
+        <span class="close-fullscreen" onclick="closeFullscreen()">×</span>
+        <iframe id="fullscreenPdf"></iframe>
+    </div>
+
+    <script>
+        // Téma váltás
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(savedTheme);
+                document.querySelector('.theme-toggle').innerHTML = savedTheme === 'dark-mode' ? '🌕' : '💡';
+            }
+        });
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeButton = document.querySelector('.theme-toggle');
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeButton.innerHTML = '🌕';
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeButton.innerHTML = '💡';
+                localStorage.setItem('theme', 'light-mode');
+            }
+        }
+
+        function fullscreen(pdfId) {
+            const pdfFrame = document.getElementById(pdfId);
+            const fullscreenModal = document.getElementById('fullscreenModal');
+            const fullscreenIframe = document.getElementById('fullscreenPdf');
+            
+            fullscreenIframe.src = pdfFrame.src;
+            fullscreenModal.style.display = 'flex';
+        }
+
+        function closeFullscreen() {
+            const fullscreenModal = document.getElementById('fullscreenModal');
+            fullscreenModal.style.display = 'none';
+        }
+
+        // Menü megjelenítése
+        function toggleSubmenu() {
+            var submenu = document.getElementById('submenu-items');
+            submenu.style.display = (submenu.style.display === 'none' || submenu.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
