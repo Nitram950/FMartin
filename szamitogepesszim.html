@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adatbáziskezelés alapjai - Dunaújvárosi Egyetem Bánki Donát Technikum</title>
+    <title>Számítógépes szimuláció - Dunaújvárosi Egyetem Bánki Donát Technikum</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -64,18 +64,17 @@
             animation: fadeIn 1s ease-in-out;
         }
         .doc-viewer {
-        position: relative;
-        top: 150px;
-        right: 20px;
-        width: 80%; 
-        height: 500px; 
-        border: 4px solid #4a90e2;
-        border-radius: 15px;
-        overflow: hidden;
-        margin: 20px auto;
-        box-sizing: border-box;
-        transition: transform 0.3s ease;
-        }
+            position: relative;
+            top: 150px;
+            right: 20px;
+            width: 80%;
+            height: 500px;
+            border: 4px solid #4a90e2;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px auto;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
         }
         .doc-title {
             background-color: #4a90e2;
@@ -153,9 +152,29 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-       
         .doc-viewer:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 0, 0, 0.2);
+        }
+
+     
+        .gallery-container {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.1);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 0, 0, 0.2);
         }
     </style>
@@ -166,20 +185,26 @@
         <div class="name">Fésüs Martin</div>
     </div>
     <a href="index.html" class="back-button">🔙Vissza</a>
-	<a href=".html" class="back-button">📋 Konzultációslap 📋</a>
+    <a href=".html" class="back-button">📋 Konzultációslap 📋</a>
     <div class="content">
-        <h1>Adatbáziskezelés alapjai</h1>
+        <h1>Számítógépes szimuláció</h1>
         <div class="explanation red-box">🔽 Önreflexió 🔽</div>
-		<p>A dolgozat megírása során igyekeztem alaposan bemutatni a relációs adatbázis-kezelő rendszerek működését és azok alkalmazását egy egyszerű, átlátható példán keresztül. Az adatbázis-tervezés lépéseinek ismertetése, az adattípusok részletezése és az SQL műveletek bemutatása segítettek jobban megérteni az adatbázisok működését, valamint a gyakorlati alkalmazásukat. Külön figyelmet fordítottam arra, hogy minden egyes lépést világosan és érthetően magyarázzak el, hogy bárki számára érthető legyen a téma. 
-
-A folyamat során ráébredtem, hogy az adatbázis-tervezés nem csupán elméleti, hanem igen gyakorlati feladat is, amelyben a részletek, mint a megfelelő adattípusok kiválasztása és a normalizáció kulcsszerepet játszanak. Az SQL parancsok alkalmazása pedig lehetőséget adott arra, hogy ne csak elméleti szinten, hanem valóban működő adatbázist is létrehozzak. Összességében úgy érzem, hogy a dolgozat megírása során mélyebb megértést nyertem az adatbázisok struktúrájáról és azok kezeléséről, ami hasznos alapot biztosít a jövőbeli feladatokhoz. 
-</p>
-    </div>
+        <p>A projekt elkészítése során nemcsak elméleti ismeretekkel gazdagodtam, hanem a gyakorlatban is elsajátítottam a szűrők működésének és szimulálásának alapjait. A tervezés folyamata során különösen izgalmasnak találtam a komponensek kiválasztását és a szimuláció eredményeinek elemzését. A tapasztalat segített abban, hogy mélyebben megértsem, milyen szerepet játszanak ezek az áramkörök a valóságos rendszerekben.  </p>
+        
+       
+        <button class="back-button" id="galleryButton">🌆 Galéria</button>
 
     
+        <div class="gallery-container" id="gallery">
+            <img src="falstad.png" class="gallery-image" onclick="openImage(this)" alt="Image 1">
+            <img src="savszuro.png" class="gallery-image" onclick="openImage(this)" alt="Image 2">
+        </div>
+    </div>
+
+   
     <div class="doc-viewer">
-        <div class="doc-title">Adatbáziskezelés alapjai</div>
-        <iframe src="https://dufoffice365-my.sharepoint.com/personal/72591223268_tanulo_bankisuli_hu/_layouts/15/Doc.aspx?sourcedoc={5f82fde3-9068-4cf9-ab0c-fb0390b289e7}&amp;action=embedview" width="476px" height="288px" frameborder="0">Ez egy beágyazott <a target="_blank" href="https://office.com">Microsoft Office</a>-dokumentum, amelynek szolgáltatója a(z) <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+        <div class="doc-title">Számítógépes szimuláció</div>
+        <iframe src="https://dufoffice365-my.sharepoint.com/personal/72591223268_tanulo_bankisuli_hu/_layouts/15/Doc.aspx?sourcedoc={fda0ec9d-bb2a-4a44-ac10-312cae6f844a}&amp;action=embedview" width="476px" height="288px" frameborder="0">Ez egy beágyazott <a target="_blank" href="https://office.com">Microsoft Office</a>-dokumentum, amelynek szolgáltatója a(z) <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
         <div class="fullscreen-btn" onclick="toggleFullscreen()">🔲</div>
         <div class="close-btn" onclick="closeFullscreen()">❌</div>
     </div>
@@ -214,9 +239,9 @@ A folyamat során ráébredtem, hogy az adatbázis-tervezés nem csupán elméle
             const docViewer = document.querySelector('.doc-viewer');
             if (docViewer.requestFullscreen) {
                 docViewer.requestFullscreen();
-            } else if (docViewer.mozRequestFullScreen) { 
+            } else if (docViewer.mozRequestFullScreen) {
                 docViewer.mozRequestFullScreen();
-            } else if (docViewer.webkitRequestFullscreen) { 
+            } else if (docViewer.webkitRequestFullscreen) {
                 docViewer.webkitRequestFullscreen();
             } else if (docViewer.msRequestFullscreen) {
                 docViewer.msRequestFullscreen();
@@ -227,15 +252,26 @@ A folyamat során ráébredtem, hogy az adatbázis-tervezés nem csupán elméle
         function closeFullscreen() {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) { 
+            } else if (document.mozCancelFullScreen) {
                 document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) { 
+            } else if (document.webkitExitFullscreen) {
                 document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) { 
+            } else if (document.msExitFullscreen) {
                 document.msExitFullscreen();
             }
             const docViewer = document.querySelector('.doc-viewer');
             docViewer.classList.remove('fullscreen');
+        }
+
+        document.getElementById('galleryButton').addEventListener('click', function() {
+            const gallery = document.getElementById('gallery');
+            gallery.style.display = gallery.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        function openImage(imgElement) {
+            const imageSrc = imgElement.src;
+            const imgWindow = window.open();
+            imgWindow.document.write('<img src="' + imageSrc + '" style="width:100%; height:auto;">');
         }
     </script>
 </body>

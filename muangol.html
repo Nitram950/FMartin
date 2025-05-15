@@ -159,7 +159,7 @@
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), 0 0 25px #4a90e2;
         }
 
-        /* Fullscreen modal */
+        
         .fullscreen-modal {
             display: none;
             position: fixed;
@@ -238,14 +238,14 @@
 
     <button class="theme-toggle" onclick="toggleTheme()">💡</button>
 
-    <!-- Fullscreen Modal -->
+  
     <div id="fullscreenModal" class="fullscreen-modal">
         <span class="close-fullscreen" onclick="closeFullscreen()">×</span>
         <iframe id="fullscreenPdf"></iframe>
     </div>
 
     <script>
-        // Téma váltás
+    
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
@@ -285,7 +285,7 @@
             fullscreenModal.style.display = 'none';
         }
 
-        // Menü megjelenítése
+      
         function toggleSubmenu() {
             var submenu = document.getElementById('submenu-items');
             submenu.style.display = (submenu.style.display === 'none' || submenu.style.display === '') ? 'block' : 'none';

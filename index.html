@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dunaújvárosi Egyetem Bánki Donát Technikum</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" href="loggo.png" type="image/png"> <!-- Favicon beállítása -->
+    <link rel="icon" href="loggo.png" type="image/png"> 
     <style>
         body {
             margin: 0;
@@ -142,7 +142,7 @@
             transform: translateX(-50%);
         }
 
-        /* A tantárgyak gombjainak stílusa */
+     
         .subject-button {
             background-color: #4a90e2;
             color: white;
@@ -165,13 +165,13 @@
             background-color: #357ab7;
         }
 
-        /* A tantárgyak gombjai alapértelmezetten rejtve */
+      
         .subjects {
             display: none;
             margin-top: 20px;
         }
 
-        /* Az elmagyarázó felületek */
+    
         .explanation {
             display: block;
             font-size: 14px;
@@ -207,7 +207,7 @@
             right: 25%;
         }
 
-        /* Köszöntés stílus */
+      
         .welcome-message {
             position: absolute;
             top: 50%;
@@ -239,22 +239,22 @@
     <div class="info-title">Információk</div>
     <div class="osztalyok-title">Osztályok</div>
 
-    <!-- Köszöntés üzenet -->
+
     <div class="welcome-message" id="welcomeMessage">
         🌟 Helló! Üdvözöllek az oldalamon! 😄 Itt megtalálod az iskolai tantárgyakat. Kattints a megfelelő osztályra, hogy többet megtudj! 📚
     </div>
 
-    <!-- Rólam gomb visszahelyezése a bal oldalon -->
+   
     <a href="rolam.html" class="roham-button" style="position: absolute; top: 160px; left: 20px;">Rólam</a>
 
-    <!-- Gombok konténere a jobb oldalon -->
+  
     <div class="button-container">
-        <a href="javascript:void(0);" class="szreu-button" onclick="toggleSubjects('11')">11. Osztály✅</a>
+        <a href="javascript:void(0);" class="szreu-button" onclick="toggleSubjects('11')">11. Osztály</a>
         <a href="javascript:void(0);" class="iot-button" onclick="toggleSubjects('12')">12. Osztály</a>
-        <a href="javascript:void(0);" class="mikrovez-button" onclick="toggleSubjects('13')">13. Osztály</a> <!-- Új gomb hozzáadva -->
+        <a href="javascript:void(0);" class="mikrovez-button" onclick="toggleSubjects('13')">13. Osztály</a> 
     </div>
 
-    <!-- Tantárgyak listája -->
+   
     <div id="subjects-11" class="subjects">
         <div class="explanation green-box">🔽 Első félév 🔽</div>
         <a href="Elektronika.html" class="subject-button subject-button">Elektronika</a>
@@ -266,20 +266,20 @@
 
     <div id="subjects-12" class="subjects">
         <div class="explanation green-box">🔽 Első félév 🔽</div>
-        <a href="adatbazis.html" class="subject-button subject-button">✅Adatbáziskezelés alapjai✅</a>
-        <a href="halozat.html" class="subject-button subject-button">✅Hálózatkezelés✅</a>
+        <a href="adatbazis.html" class="subject-button subject-button">Adatbáziskezelés alapjai</a>
+        <a href="halozat.html" class="subject-button subject-button">Hálózatkezelés</a>
         <div class="explanation red-box">🔽 Második félév 🔽</div>
-        <a href="plc.html" class="subject-button subject-button">✅PLC programozás✅</a>
-        <a href="12osztaly_tantargy4.html" class="subject-button subject-button">Számítógépes szimuláció</a>
+        <a href="plc.html" class="subject-button subject-button">PLC programozás</a>
+        <a href="szamitogepesszim.html" class="subject-button subject-button">Számítógépes szimuláció</a>
     </div>
 
     <div id="subjects-13" class="subjects">
         <div class="explanation green-box">🔽 Első félév 🔽</div>
-        <a href="muangol.html" class="subject-button subject-button">✅Munkavállalói idegen nyelven✅</a>
-        <a href="iot.html" class="subject-button subject-button">✅IoT✅</a>
+        <a href="muangol.html" class="subject-button subject-button">Munkavállalói idegen nyelven</a>
+        <a href="iot.html" class="subject-button subject-button">IoT</a>
         <div class="explanation red-box">🔽 Második félév 🔽</div>
-        <a href="programfej.html" class="subject-button subject-button">✅Programfejlesztés✅</a>
-        <a href="Robottechnika.html" class="subject-button subject-button">✅Robottechnika CAD/CAM✅</a>
+        <a href="programfej.html" class="subject-button subject-button">Programfejlesztés</a>
+        <a href="Robottechnika.html" class="subject-button subject-button">Robottechnika CAD/CAM</a>
     </div>
 
     <button class="theme-toggle" onclick="toggleTheme()">💡</button>
@@ -317,7 +317,7 @@
             const subjects = document.getElementById('subjects-' + classNum);
             subjects.style.display = 'block';
 
-            // A köszöntés eltüntetése
+         
             document.getElementById('welcomeMessage').style.display = 'none';
         }
     </script>
